@@ -1,4 +1,26 @@
 
+html { 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* background: url(../images/backconnaigra.jpg) no-repeat center center fixed;  */
+
+html, body {
+  height: 100%;
+  background-color:transparent;
+}
+
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #eee;
+}
+
+/* background: url(../images/jumbotron2.jpg) no-repeat center center; */
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -7,9 +29,8 @@
 }
 
 /* Space out content a bit */
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.backbutton {
+  margin-top:30px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -23,6 +44,7 @@ body {
 /* Custom page header */
 .header {
     border-bottom: 1px solid #e5e5e5;
+    margin-top:20px;
 }
 
 /* Make the masthead heading the same height as the navigation */
@@ -40,15 +62,31 @@ body {
     border-top: 1px solid #e5e5e5;
 }
 
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -50px;
+}
+
+
+
+/* Set the fixed height of the footer here */
+#push,
+.footer {
+  height: 40px;
+}
+
+
 .container-narrow > hr {
     margin: 30px 0;
 }
 
 /* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-}
+
 
 .jumbotron .btn {
     font-size: 21px;
@@ -58,10 +96,79 @@ body {
 /* Supporting marketing content */
 .marketing {
     margin: 40px 0;
+    h4 {
+        cursor: pointer;
+    }
+    h4:hover{text-decoration:underline;}
 }
 
 .marketing p + h4 {
     margin-top: 28px;
+}
+
+.marketing p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.animate-repeat {
+  line-height:40px;
+  list-style:none;
+  box-sizing:border-box;
+}
+ 
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+ 
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+ 
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:40px;
+}
+
+/* FOR JUMBOTRON HIDE */ 
+.animate-hide {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+
+  opacity:1;
+  padding:10px;
+
+}
+ 
+.animate-hide.ng-hide-add,
+.animate-hide.ng-hide-remove {
+  display:block!important;
+}
+ 
+.animate-hide.ng-hide {
+  line-height:0;
+  opacity:0;
+  padding:0 10px;
+}
+
+.container {
+  background:#eee ;
+  background-color:rgba(255, 255, 255, 0.8)
+
+}
+
+.left-inline-entry {
+  display:inline;
+  float:left;
+  margin-right:20px;
 }
 
 /* Responsive: Portrait tablets and up */

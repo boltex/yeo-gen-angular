@@ -1,0 +1,52 @@
+<div class="jumbotron">
+  <h1>IBM DB2</h1>
+  <p class="lead">
+    <img src="images/oceanex-logo.png" alt="Oceanex"><br>
+    tests
+  </p>
+  <p><a class="btn btn-lg btn-success"  ng-click="testquery()">Test db2_connect Query &nbsp;<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<div class="panel panel-success " ng-show="toggleconnect">
+  <div class="panel-heading"><h3 class="panel-title">Message</h3></div>
+  <div class="panel-body">
+    <p class="text-success">{{mydata.message}} {{mydata.conn}}</p>
+  </div>
+</div>
+
+<!-- ********************************************************* MAIN CONTENT ****************************-->
+<div class="row marketing" ng-show="toggleconnect" >
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="filterbyname" class="control-label col-sm-3 ">Filter by Name</label>
+      <div class="col-sm-9">
+        <input id="filterbyname" class="form-control" type="search" ng-model="search.PERMALINK" placeholder="Name" /> 
+      </div>
+    </div>
+  </form>
+  <div ng-repeat="myentry in mydata.resultset | filter:search:strict | orderBy:'PERMALINK'" class="animate-repeat left-inline-entry">
+    <h4 ng-click="showdesc(myentry.PAGE_ID,myentry.LANGUAGE_ID )" >{{myentry.PERMALINK}}</h4>
+  </div>
+</div>
+
+<div class="row marketing" ng-show="toggledesc" >
+  <h3>{{mydesc.TITLE}}</h3>
+  <p>{{mydesc.DESCRIPTION}}<p>
+  <p><a class="btn btn-lg btn-default backbutton"  ng-click="backtolist()">Back to list &nbsp;<span class="glyphicon glyphicon-arrow-left"></span></a></p>
+</div>
+
+<!-- ***************************************************************************************************-->
+
+<div class="panel panel-warning " ng-show="showwarning">
+  <div class="panel-heading"><h3 class="panel-title">Warning</h3></div>
+  <div class="panel-body">
+    <p class="text-warning">{{mydata.message}}</p>
+  </div>
+</div>
+
+<div class="panel panel-danger " ng-show="showerror">
+  <div class="panel-heading"><h3 class="panel-title">Server Error</h3></div>
+  <div class="panel-body">
+    <p class="text-danger">{{errormessage}}</p>
+  </div>
+</div>
