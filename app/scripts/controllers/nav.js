@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ibmdb2App')
+angular.module('trackingApp')
 .controller('navCtrl', ['$scope', '$location', function ($scope, $location) {
 
         $scope.isActive = function(path) {

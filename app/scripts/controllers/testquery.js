@@ -1,7 +1,7 @@
 /*global $:false */
 'use strict';
 
-angular.module('ibmdb2App')
+angular.module('trackingApp')
   .controller('testqueryCtrl', ['$scope', '$http',   function ($scope, $http ) {
 
 
