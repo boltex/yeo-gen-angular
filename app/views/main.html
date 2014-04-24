@@ -1,25 +1,38 @@
-
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
+<div class="jumbotron" >
+  <h1>Webapp</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+    tests
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Test!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <p><a class="btn btn-lg btn-success"  ng-click="testJSON()">Test JSON &nbsp;<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class="row marketing" ng-show="togglelist" >
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="filterbyname" class="control-label col-sm-3 ">Filter by name</label>
+      <div class="col-sm-9"> <input id="filterbyname" class="form-control" type="search" ng-model="search.name" placeholder="Filter" /> </div>
+    </div>
+  </form>
+  <div ng-repeat="myentry in mydata | filter:search:strict | orderBy:'name'" class="animate-repeat"><h4 ng-click="showdesc(myentry.id)" >{{myentry.name}}</h4></div>
 </div>
 
+<div class="row marketing" ng-show="toggledesc" >
+  <h3>{{mydesc.name}}</h3>
+  <p>{{mydesc.description}}<p>
+  <p><a class="btn btn-lg btn-default backbutton"  ng-click="backtolist()">Back to list &nbsp;<span class="glyphicon glyphicon-arrow-left"></span></a></p>
+</div>
+
+<div class="panel panel-warning " ng-show="showwarning">
+  <div class="panel-heading"><h3 class="panel-title">Warning</h3></div>
+  <div class="panel-body">
+    <p class="text-warning">{{message}}</p>
+  </div>
+</div>
+
+<div class="panel panel-danger " ng-show="showerror">
+  <div class="panel-heading"><h3 class="panel-title">Server Error</h3></div>
+  <div class="panel-body">
+    <p class="text-danger">{{errormessage}}</p>
+  </div>
+</div>
